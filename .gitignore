@@ -1,0 +1,17 @@
+
+.idea
+.vscode
+
+assets/*
+!assets/.gitkeep
+
+cache/*
+!cache
+!cache/.htaccess
+
+images/*
+!images/.gitkeep
+
+zips/*
+!zips
+!zips/.htaccess

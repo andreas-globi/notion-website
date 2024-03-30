@@ -1,0 +1,27 @@
+php_flag display_errors on
+php_flag error_reporting 1
+
+# using UTF8 Encoding
+AddDefaultCharset UTF-8
+
+# Enable apache rewrite module
+Options -Indexes
+RewriteEngine on
+
+# Set the base directory for the site
+RewriteBase /
+
+# protect our git folder and other things
+RewriteRule \.git - [F,L]
+#RewriteRule ^readme\.md - [F,L]
+
+# no page is index page
+RewriteRule ^/?$ /index.php?q= [L]
+
+# Send all html requests to inc/index.php
+RewriteRule ^(.*)\.html$ /index.php?q=$1 [NC,L]
+
+# If requested page is not an existing file, send to default error page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.php?q=404 [NC,L]

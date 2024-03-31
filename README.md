@@ -5,6 +5,12 @@ Make a website from your Notion notes with this simple boilerplate.
 This boilerplate will quickly get your website up and running with the HTML export from Notion. 
 It includes a simple header, footer, and ajax search function.
 
+![](inc/screenshot.png)
+
+This library used to try to fetch an export from Notion directly, but the internal API keeps changing
+and the official API doesn't provide an export endpoint. So, the best way to get your content is to 
+manually export your Notion notes to HTML and upload the zip file to the server.
+
 ## Requirements
 - Web Server Running Apache with PHP > 7.2
 - `php-zip` extension

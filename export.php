@@ -8,6 +8,17 @@ if ( php_sapi_name() != "cli" ) {
 	die("This script can only be run in CLI mode");
 }
 
+// ensure vars.php
+if ( ! file_exists(__DIR__."/config/vars.php") ) {
+	$content = file_get_contents(__DIR__."/config/vars.sample.php");
+	$content = str_replace(
+		"// NB: this is a sample file, copy this to vars.php and modify as needed",
+		"// This is the actual vars file. Replace the values with your own.",
+		$content
+	);
+	file_put_contents(__DIR__."/config/vars.php", $content);
+}
+
 // requirements
 if ( ! class_exists("ZipArchive") ) throw new Exception("php-zip extension required");
 

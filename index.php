@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/inc/siteFunctions.php";
-$config = require __DIR__ . "/config/vars.php";
+$config = require __DIR__ . "/config/vars.sample.php";
 
 // always force / as home
 if ( $_SERVER['REQUEST_URI'] == "/index.php" || $_SERVER['REQUEST_URI'] == "/index.html" ) {

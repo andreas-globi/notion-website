@@ -2,6 +2,8 @@
 .idea
 .vscode
 
+config/vars.php
+
 assets/*
 !assets/.gitkeep
 

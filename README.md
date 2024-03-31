@@ -15,8 +15,8 @@ It includes a simple header, footer, and ajax search function.
 1. Clone the repository to your web folder
     ```
     git clone https://github.com/andreas-globi/notion-website.git .
-   
-2. Copy the Notion HTML Export Zip file into the `zips` folder
+    ```
+3. Copy the Notion HTML Export Zip file into the `zips` folder
 3. Run `extract.php` from the command line
     ```
     php extract.php

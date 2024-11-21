@@ -331,6 +331,7 @@ h2 { padding: 4px 0; }
 h3 { padding: 3px 0; }
 h4 { padding: 2px 0; }
 h5 { padding: 1px 0; }
+p { min-height: 1.5em; }
 figure { margin: 0.5em 0 !important; }
 figure.image { text-align: left; }
 figure.callout { border: 1px solid #ddd; background: #f8f8f8; }

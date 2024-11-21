@@ -133,8 +133,8 @@ class NotionExportParser {
 			}
 			$basename = $basename.$add.".".$ext;
 			$this->images[] = $basename;
-			$this->saveImage(urldecode($url), $basename);
-			$html = str_replace('src="'.$url.'"', 'src="images/'.$basename.'"', $html);
+			$this->saveImage(htmlspecialchars_decode(urldecode($url)), $basename);
+			$html = str_replace('src="'.$url.'"', 'src="/images/'.$basename.'"', $html);
 		}
 	}
 

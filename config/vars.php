@@ -15,9 +15,22 @@ return [
 	'enable_search' => true,
 
 	// footer html
-	'footer_html' => '
+	'footer_html' => <<<EOT
 		(c) My Awesome Website - Powered by Notion
-	',
+EOT,
+
+	// head injection - eg google analytics
+	'head_inject' => <<<EOT
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7P0BN3ZRR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7P0BN3ZRR');
+</script>	
+EOT,
 
 ];
 

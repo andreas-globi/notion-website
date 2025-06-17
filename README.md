@@ -18,16 +18,16 @@ manually export your Notion notes to HTML and upload the zip file to the server.
 
 ## Installation
 
-1. Clone the repository to your web folder
+1. Update the `config/vars.php` file with your settings
+2. Clone the repository to your web folder
     ```
     git clone https://github.com/andreas-globi/notion-website.git .
     ```
 3. Copy the Notion HTML Export Zip file into the `zips` folder
-3. Run `extract.php` from the command line
+4. Run `extract.php` from the command line
     ```
     php extract.php
     ```
-4. Update the `config/vars.php` file with your settings
 5. Visit the website in your browser
 6. Enjoy!
 
@@ -46,6 +46,7 @@ manually export your Notion notes to HTML and upload the zip file to the server.
 - Easy to Customize
 - Fast Loading
 - SEO Friendly
+- Google Analytics
 
 ## Examples
 - [Pushing Podio Blog](https://pushingpodio.globi.ca)

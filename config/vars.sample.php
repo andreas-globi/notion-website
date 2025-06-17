@@ -17,13 +17,13 @@ return [
 	'enable_search' => true,
 
 	// footer html
-	'footer_html' => '
+	'footer_html' => <<<EOT
 		(c) My Awesome Website - Powered by Notion
-	',
+EOT,
 
 	// head injection - eg google analytics
-	'head_inject' => '
-	',
+	'head_inject' => <<<EOT
+EOT,
 
 ];
 

@@ -21,5 +21,9 @@ return [
 		(c) My Awesome Website - Powered by Notion
 	',
 
+	// head injection - eg google analytics
+	'head_inject' => '
+	',
+
 ];
 

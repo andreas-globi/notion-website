@@ -164,14 +164,42 @@ class NotionExportParser {
 	}
 
 	private function getFirstHtmlFile() {
-		for ( $i=0; $i<$this->zip->numFiles; $i++ ) {
-			$filename = $this->zip->getNameIndex($i);
-			if ( substr($filename, -5) != ".html" ) continue;
-			if ( stristr($filename, "/") ) continue;
-			$initialPage = $filename;
+		$initial   = null;              // best candidate so far
+		$bestDepth = PHP_INT_MAX;       // number of “/”s in that candidate
+
+		for ($i = 0; $i < $this->zip->numFiles; $i++) {
+			$name = $this->zip->getNameIndex($i);
+
+			// Skip directory entries quickly
+			if (str_ends_with($name, '/')) {
+				continue;
+			}
+
+			// We only care about *.html files
+			if (strtolower(pathinfo($name, PATHINFO_EXTENSION)) !== 'html') {
+				continue;
+			}
+
+			// Depth = how far down the directory tree this file is
+			$depth = substr_count($name, '/');
+
+			// Keep the first file we meet on the shallowest level
+			if ($depth < $bestDepth) {
+				$bestDepth = $depth;
+				$initial   = $name;
+
+				// Can’t get shallower than depth 0, so we can stop early
+				if ($bestDepth === 0) {
+					break;
+				}
+			}
 		}
-		if ( ! $initialPage ) throw new Exception("could not find initial page");
-		return $initialPage;
+
+		if ($initial === null) {
+			throw new RuntimeException('Could not find initial page in Notion export');
+		}
+
+		return $initial;
 	}
 
 	private function filenameFromUrl($url) {

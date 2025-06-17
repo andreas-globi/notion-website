@@ -43,8 +43,12 @@ $header = str_replace("{{enablesearch}}", ($config['enable_search']??"")?"true":
 $footer = trim(file_get_contents( __DIR__ . "/config/footer.tpl"));
 $footer = str_replace("{{footerhtml}}", ($config['footer_html']??""), $footer);
 
+// header injection
+$inject = $config['head_inject']??"";
+
 // build and render
 $html = str_replace('<body>', '<body>'.$header, $html);
 $html = str_replace('</body>', $footer.'</body>', $html);
+$html = str_replace('</head>', $headinject.'</head>', $html);
 
 echo $html;

@@ -15,6 +15,10 @@ RewriteRule \.git - [F,L]
 # no page is index page
 RewriteRule ^/?$ /index.php?q= [L]
 
+# Dynamic sitemap + robots
+RewriteRule ^sitemap\.xml$ /inc/sitemap.php [L]
+RewriteRule ^robots\.txt$  /inc/robots.php  [L]
+
 # Send all html requests to inc/index.php
 RewriteRule ^(.*)\.html$ /index.php?q=$1 [NC,L]
 

@@ -11,6 +11,14 @@ $base   = $scheme . '://' . $host . $prefix;
 
 $files = glob(realpath(__DIR__ . "/../cache/") . "/*.html") ?: [];
 
+usort($files, function($a, $b) {
+	$an = basename($a, '.html');
+	$bn = basename($b, '.html');
+	if ($an === 'index') return -1;
+	if ($bn === 'index') return 1;
+	return strcmp($an, $bn);
+});
+
 header('Content-Type: application/xml; charset=utf-8');
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
